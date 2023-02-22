@@ -16,7 +16,7 @@ export class FormpageComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   userForm = this.fb.group({
-    username: new FormControl(''),
+    username: new FormControl('', Validators.required),
     gender: new FormControl(null),
     emails: this.fb.array([]),
   });
@@ -26,7 +26,7 @@ export class FormpageComponent implements OnInit {
   }
 
   emailForm = this.fb.group({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   addNewEmail() {
@@ -39,5 +39,9 @@ export class FormpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.addNewEmail();
+  }
+
+  submit() {
+    console.log('FORM SUBMITTED: ', this.userForm);
   }
 }

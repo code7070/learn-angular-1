@@ -1,3 +1,14 @@
-<div class="container">
-  <p>profile works!</p>
+<div *ngIf="isLogin">
+  <div class="container my-6">
+    <h2 class="text-xl">Profile Editor</h2>
+    <app-formpage></app-formpage>
+  </div>
+  <div class="container my-6">
+    <h2 class="text-xl">Profile Information</h2>
+    <div class="my-4 text-center">
+      <div>{{ userInfo }}</div>
+      <button class="btn btn-sm btn-danger" (click)="doLogout()">Logout</button>
+    </div>
+  </div>
 </div>
+<div *ngIf="!isLogin" class="container">Waiting...</div>

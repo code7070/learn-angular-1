@@ -1,1 +1,51 @@
-<p>login works!</p>
+<div class="max-w-md mx-auto border bg-slate-100 rounded-2xl p-4">
+  <h2 class="text-2xl font-bold uppercase">Login</h2>
+  <form
+    class="gap-2 w-full max-w-full"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div
+      class="form-control my-4 w-full"
+      [ngClass]="usernameError ? 'input-group input-group-vertical' : ''"
+    >
+      <input
+        type="text"
+        placeholder="Username"
+        class="input input-bordered input-primary w-full"
+        [ngClass]="usernameError ? 'input-error' : 'input-primary'"
+        formControlName="username"
+      />
+      <div *ngIf="usernameError" class="alert alert-error shadow-xl">
+        <div *ngIf="usernameError.required">Username harus diisi</div>
+        <div *ngIf="usernameError.minlength">Pendek bener, tambah lah</div>
+      </div>
+    </div>
+    <div
+      class="form-control my-4 w-full"
+      [ngClass]="passwordError ? 'input-group input-group-vertical' : ''"
+    >
+      <div class="input-group w-full">
+        <input
+          [type]="visible ? 'text' : 'password'"
+          placeholder="Password"
+          class="input input-primary input-bordered w-full"
+          formControlName="password"
+        />
+        <button
+          type="button"
+          class="btn btn-primary btn-square text-2xl flex items-center"
+          (click)="visible = !visible"
+        >
+          {{ visible ? "😆" : "😁" }}
+        </button>
+      </div>
+      <div *ngIf="passwordError" class="alert alert-error shadow-xl">
+        <div *ngIf="passwordError.required">Password harus diisi</div>
+      </div>
+    </div>
+    <div class="mb-4 w-full">
+      <button class="btn btn-primary btn-wide mx-auto block">Login</button>
+    </div>
+  </form>
+</div>
