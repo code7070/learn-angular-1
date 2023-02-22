@@ -1,0 +1,29 @@
+<form>
+  <div class="border-2 border-primary rounded-xl p-6">
+    <div class="text-xl mb-6">Input Image</div>
+    <div class="text-center">
+      <input
+        #imageInput
+        type="file"
+        accept="image/jpeg"
+        class="file-input file-input-bordered file-input-primary w-full max-w-xs"
+        (change)="processImage(imageInput)"
+      />
+    </div>
+    <div
+      class="my-4 [&>img]:w-full [&>img]:max-w-xs [&>img]:block [&>img]:mx-auto"
+    >
+      <img *ngIf="imageUrl && imageUrl !== ''" [src]="imageUrl" />
+    </div>
+    <div class="max-w-xs mx-auto text-center">
+      <button
+        class="btn btn-error btn-wide btn-sm font-bold"
+        [ngClass]="imageUrl ? '' : 'btn-disabled'"
+        type="reset"
+        (click)="reset()"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+</form>

@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { FormpageComponent } from './formpage/formpage.component';
 import { CompanyformComponent } from './companyform/companyform.component';
+import { InputImageComponent } from './input-image/input-image.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CompanyformComponent } from './companyform/companyform.component';
     LoginComponent,
     FormpageComponent,
     CompanyformComponent,
+    InputImageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [CookieService],
