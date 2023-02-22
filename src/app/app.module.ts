@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { NavlinkComponent } from './navlink/navlink.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { FormpageComponent } from './formpage/formpage.component';
+import { CompanyformComponent } from './companyform/companyform.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { LoginComponent } from './login/login.component';
     NavlinkComponent,
     ProfileComponent,
     LoginComponent,
+    FormpageComponent,
+    CompanyformComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [CookieService],
   bootstrap: [AppComponent],
 })

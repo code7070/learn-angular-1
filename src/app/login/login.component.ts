@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private cookieService: CookieService) {}
+  constructor(private cookieService: CookieService, private router: Router) {}
 
   doLogin() {
     this.cookieService.set('loggedin', 'true');

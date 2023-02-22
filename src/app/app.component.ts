@@ -33,5 +33,6 @@ export class AppComponent implements OnDestroy {
     { path: '/', text: 'Home' },
     { path: '/about-us', text: 'About us' },
     { path: '/profile', text: 'Profile' },
+    { path: '/form', text: 'Form' },
   ];
 }

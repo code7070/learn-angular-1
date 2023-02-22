@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="max-w-xs mx-auto my-4" [formGroup]="userForm">
+    <div class="form-control w-full max-w-xs mb-4">
+      <label class="label">
+        <span class="label-text">Username</span>
+      </label>
+      <input
+        type="text"
+        placeholder="Type here"
+        class="input input-primary input-bordered w-full max-w-xs"
+        formControlName="username"
+      />
+      <!-- {{ userForm.controls.username.errors.maxLength ? "Too much" : "" }} -->
+    </div>
+    <div class="form-control w-full max-w-xs mb-4">
+      <label class="label">
+        <span class="label-text">Choose your gender</span>
+      </label>
+      <select
+        class="select select-primary w-full max-w-xs"
+        formControlName="gender"
+      >
+        <option disabled [ngValue]="null">Not Set</option>
+        <option ngValue="male">Male</option>
+        <option ngValue="female">Female</option>
+      </select>
+    </div>
+    <div class="rounded-lg border-2 border-dashed border-primary p-4 -mx-4">
+      <ng-container formArrayName="emails">
+        <ng-container
+          *ngFor="let emailForm of emails.controls; let index = index"
+        >
+          <div
+            class="form-control w-full max-w-xs mb-4"
+            [formGroupName]="index"
+          >
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <div [ngClass]="index > 0 ? 'input-group' : ''">
+              <input
+                type="text"
+                placeholder="Type here"
+                class="input input-primary input-bordered w-full max-w-xs"
+                formControlName="email"
+              />
+              <button
+                *ngIf="index > 0"
+                class="btn btn-error"
+                (click)="removeEmail(index)"
+              >
+                X
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <button
+        type="button"
+        class="btn btn-primary btn-sm mx-auto block"
+        (click)="addNewEmail()"
+      >
+        Add Email
+      </button>
+    </div>
+    <button type="submit" class="btn btn-wide btn-secondary mx-auto my-6 block">
+      Submit
+    </button>
+  </div>
+
+  <!-- <div class="my-20 bg-slate-200">
+    <app-companyform></app-companyform>
+  </div> -->
+</div>
