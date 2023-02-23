@@ -25,6 +25,8 @@ export class InputImageComponent {
       this.imageUrl = reader.result as string;
     });
 
+    // @ViewChild
+
     reader.readAsDataURL(file);
   }
 

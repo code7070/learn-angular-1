@@ -1,0 +1,24 @@
+<div>
+  <div class="p-4 border-2 border-primary rounded-xl">
+    <h2 class="text-xl mb-4">API Fetcher</h2>
+    <div class="flex justify-center items-center">
+      <button
+        class="btn btn-accent font-bold"
+        type="button"
+        [ngClass]="loading ? 'btn-disabled' : ''"
+        (click)="clickFetch()"
+      >
+        Fetch Now
+      </button>
+    </div>
+    <div class="text-center relative min-h-8">
+      <img *ngIf="dog" class="w-full block my-4" src="{{ dog.message }}" />
+      <div
+        *ngIf="loading"
+        class="absolute left-0 top-0 w-full h-full bg-slate-100 opacity-80 flex items-center justify-center text-lg"
+      >
+        Loading....
+      </div>
+    </div>
+  </div>
+</div>
